@@ -2,7 +2,7 @@ def cluster(graph, weights, level):
     visited = set()
     clusters = []
 
-    for u in graph.vertices():
+    for u in graph:
         if u not in visited:
             stack = [u]
             component = []
