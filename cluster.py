@@ -2,18 +2,18 @@ def cluster(graph, weights, level):
     visited = set()
     clusters = []
 
-    for u in graph:
+    for u in graph.nodes:
         if u not in visited:
             stack = [u]
-            component = []
+            comp = []
             visited.add(u)
             while stack:
                 x = stack.pop()
-                component.append(x)
+                comp.append(x)
                 for y in graph.neighbors(x):
                     if y not in visited and weights(x, y) >= level:
                         visited.add(y)
                         stack.append(y)
-            clusters.append(frozenset(component))
+            clusters.append(frozenset(comp))
 
     return frozenset(clusters)
